@@ -6,7 +6,7 @@ const Track = ({ isPlaying, isActive, activeSong }) => (
       <img src={activeSong?.images?.coverart} alt="cover art" className="rounded-full" />
     </div>
     <div className="w-[50%]">
-      <p className="truncate text-black font-bold text-lg">
+      <p className="truncate text-black font-bold text-lg w-[150px]">
         {activeSong?.title ? activeSong?.title : 'No active Song'}
       </p>
       <p className="truncate text-gray-300">

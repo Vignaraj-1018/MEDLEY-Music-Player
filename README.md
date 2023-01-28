@@ -1,4 +1,4 @@
-## Music Player Built By Samson Roch S & Vignaraj D!
+## Music Player
 
 ### Discover Page - can be filtered based on Genre
 ![Discover Page](/output_image/1.png)

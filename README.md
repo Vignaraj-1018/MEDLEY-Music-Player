@@ -15,4 +15,4 @@
 ### Top Charts Page
 ![Top Charts Page](/output_image/4.png)
 
-![Logo](src/assets/logo_1-1.png)
+![Logo](src/assets/logo_1.png)

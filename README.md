@@ -14,3 +14,5 @@
 
 ### Top Charts Page
 ![Top Charts Page](/output_image/4.png)
+
+![Logo](/assests/logo_1.png)

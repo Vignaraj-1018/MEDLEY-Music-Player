@@ -1,4 +1,5 @@
 ## Music Player
+![Logo](src/assets/logo_1.png)
 
 ### Discover Page - can be filtered based on Genre
 ![Discover Page](/output_image/1.png)
@@ -14,5 +15,3 @@
 
 ### Top Charts Page
 ![Top Charts Page](/output_image/4.png)
-
-![Logo](src/assets/logo_1.png)

@@ -1,17 +1,27 @@
-## Music Player
-![Logo](src/assets/logo_1.png)
+# Medley Music Player
+Medley Music Player is a web application built with React that allows users to browse and discover new music. It integrates the Shazam API for music sources and the geolocation API to get the user's location.
 
-### Discover Page - can be filtered based on Genre
-![Discover Page](/output_image/1.png)
+# Features
+- Browse top 5 artists, top 5 tracks, and top popular songs across various genres
+- Play songs and view lyrics and related songs
+- View artist details and their songs
 
-### MusicPlayer Interface
-![MusicPlayer Interface](/output_image/2.png)
+# Getting Started
+##Prerequisites
+- Node.js v12 or higher
+- npm v6 or higher
 
-### Top Songs Around Us - fetched location using Geolocation API
-![Top Songs Around Us](/output_image/5.png)
+# Installation
+1. Clone the repository
+2. Install the dependencies: 
+`cd medley-music-player
+npm install`
+3. Start the Application: `npm run dev`
 
-### Top Artists Page
-![Top Artists Page](/output_image/3.png)
+# Usage
+- Browse top artists, tracks, and popular songs from the home page
+- Click on a song to play it and view its lyrics and related songs
+- Click on an artist to view their details and their songs
 
-### Top Charts Page
-![Top Charts Page](/output_image/4.png)
+# License
+Distributed under the MIT License. See [LICENSE](LICENSE.md) for more information.

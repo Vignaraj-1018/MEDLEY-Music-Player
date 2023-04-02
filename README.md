@@ -7,7 +7,7 @@ Medley Music Player is a web application built with React that allows users to b
 - View artist details and their songs
 
 # Getting Started
-##Prerequisites
+## Prerequisites
 - Node.js v12 or higher
 - npm v6 or higher
 

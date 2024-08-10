@@ -1,7 +1,3 @@
-import loader from './loader.svg';
-import logo from './logo_1.png';
+import UserIcon from './user.svg';
 
-export {
-  logo,
-  loader,
-};
+export {UserIcon}

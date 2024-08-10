@@ -1,13 +1,15 @@
 import React from 'react'
-import { useGetDiscoverListQuery } from '../redux/apiStore/SpotifyAPI'
 import { useDispatch } from 'react-redux';
+import useFetchHomeData from '../redux/usefetchHomeDate';
 
 const Home = () => {
 	const dispatch = useDispatch()
-	const { data:discoverList, isFetching, error } = useGetDiscoverListQuery("IN");
+	const {data, isFetching, error} = useFetchHomeData();
+
 	if (!isFetching){
-		console.log(discoverList, isFetching, error);
+		console.log(data);
 	}
+
 	return (
 		<div>Home</div>
 	)

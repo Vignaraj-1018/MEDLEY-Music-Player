@@ -3,7 +3,7 @@ import { UserIcon } from '../assets'
 
 const Navbar = () => {
   return (
-    <div className='flex w-full h-16 justify-between p-3 border shadow-lg'>
+    <div className='flex h-full justify-between p-3 border shadow-lg'>
         <div className="flex text-3xl font-bold cursor-pointer">
             Medley - Music Player
         </div>

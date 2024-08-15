@@ -30,7 +30,7 @@ function App() {
 	
   return (
     <div className='flex flex-col h-[100dvh] w-full overflow-auto bg-primary justify-between'>
-		<div className="flex flex-row h-full">
+		<div className="flex flex-row h-full gap-4 p-4">
 			<div className="flex w-1/5">
 				<Navbar/>
 			</div>
@@ -40,7 +40,6 @@ function App() {
 				</Routes>
 			</div>
 		</div>
-		<div className="flex p-1 w-full text sm bg-zinc-600 text-white justify-center">Copyrights © 2024</div>
     </div>
   )
 }

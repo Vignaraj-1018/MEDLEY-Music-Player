@@ -5,5 +5,7 @@ import LibraryIcon from './library-icon.svg'
 import PlusIcon from './plus-icon.svg'
 import RightArrow from './right-arrow.svg'
 import PlayIcon from './play-icon.svg'
+import LikeIcon from './like-icon.svg'
+import ClockIcon from './clock-icon.svg'
 
-export {UserIcon, HomeIcon, SearchIcon, LibraryIcon, PlusIcon, RightArrow, PlayIcon}
+export {UserIcon, HomeIcon, SearchIcon, LibraryIcon, PlusIcon, RightArrow, PlayIcon, LikeIcon, ClockIcon}

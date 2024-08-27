@@ -1,15 +1,26 @@
 import React from 'react'
 import { HomeIcon, LibraryIcon, PlusIcon, RightArrow, SearchIcon, UserIcon } from '../assets'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+
+	const navigate = useNavigate();
+	const handleSearchClick = () => {
+        navigate('/search');
+    }
+
+	const handleHomeClick = () => {
+        navigate('/');
+    }
+
   return (
 	<div className='flex flex-col w-full gap-4 h-full justify-between'>
 		<div className="flex flex-col rounded-xl h-[10rem] bg-zinc-200 p-6">
-			<div className="flex h-1/2 w-full gap-6 items-center cursor-pointer hover:bg-zinc-300 p-2 rounded-lg">
+			<div className="flex h-1/2 w-full gap-6 items-center cursor-pointer hover:bg-zinc-300 p-2 rounded-lg" onClick={handleHomeClick}>
 				<img src={HomeIcon} alt="Home" className='flex h-6 w-6'/>
 				<span className="flex text-lg font-semibold">Home</span>
 			</div>
-			<div className="flex h-1/2 w-full gap-6 items-center cursor-pointer hover:bg-zinc-300 p-2 rounded-lg">
+			<div className="flex h-1/2 w-full gap-6 items-center cursor-pointer hover:bg-zinc-300 p-2 rounded-lg" onClick={handleSearchClick}>
 				<img src={SearchIcon} alt="Home" className='flex h-6 w-6'/>
 				<span className="flex text-lg font-semibold">Search</span>
 			</div>
@@ -25,7 +36,7 @@ const Navbar = () => {
 					<img src={RightArrow} alt="RightArrow" className='flex h-6 w-6'/>
 				</div>
 			</div>
-			<div className="flex flex-row gap-4">
+			<div className="flex flex-row gap-4 flex-wrap">
 				<div className="flex p-1 bg-zinc-300 text-lg rounded-xl font-semibold">Playlists</div>
 				<div className="flex p-1 bg-zinc-300 text-lg rounded-xl font-semibold">Artists</div>
 				<div className="flex p-1 bg-zinc-300 text-lg rounded-xl font-semibold">Albums</div>

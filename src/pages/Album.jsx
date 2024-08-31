@@ -2,10 +2,13 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useGetAlbumQuery } from '../redux/apiStore/SpotifyAPI';
 import { ClockIcon, LikeIcon, PlayIcon } from '../assets';
+import { useDispatch } from 'react-redux';
+import { playPause, setActiveSong, trigger } from '../redux/slices/PlayerSlice';
 
 const Album = () => {
 
     const params = useParams();
+    const dispatch = useDispatch();
 
     const {data : albumData, isFetching: isDataLoading} = useGetAlbumQuery(params.id);
 
@@ -16,6 +19,13 @@ const Album = () => {
         const seconds = Math.floor((durationMs % 60000) / 1000);
         return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     }
+
+    const handlePlayClick = (data, song, i) =>{
+		console.log(song);
+		dispatch(setActiveSong({song, data, i}));
+		dispatch(playPause(false));
+		dispatch(trigger(true));
+	}
 
     return (
         <div className="flex flex-col gap-8 p-8 w-full">
@@ -52,7 +62,7 @@ const Album = () => {
                 <div className="flex h-px w-full bg-zinc-700"></div>
                 <div className="flex flex-col gap-4">
                     {albumData?.tracks.items.map((item, index)=>(
-                        <div className="flex flex-row items-center hover:bg-zinc-200 rounded-xl cursor-pointer group" key={index}>
+                        <div className="flex flex-row items-center hover:bg-zinc-200 rounded-xl cursor-pointer group" key={index} onClick={()=>handlePlayClick(albumData?.tracks.items, item, index)}>
                             <span className="flex w-1/12 justify-center text-zinc-700">
                                 <span className="flex group-hover:hidden">{index + 1}</span>
                                 <img src={PlayIcon} alt="Play" className='group-hover:flex hidden h-4 w-4'/>

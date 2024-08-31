@@ -7,6 +7,8 @@ const initialState = {
   isPlaying: false,
   activeSong: {},
   genreListId: '',
+  volume: 100,
+  triggered: false,
 };
 
 const playerSlice = createSlice({
@@ -57,9 +59,17 @@ const playerSlice = createSlice({
     selectGenreListId: (state, action) => {
       state.genreListId = action.payload;
     },
+
+    setVolume: (state, action) => {
+      state.volume = action.payload;
+    },
+
+    trigger: (state, action) => {
+      state.triggered = action.payload;
+    }
   },
 });
 
-export const { setActiveSong, nextSong, prevSong, playPause, selectGenreListId } = playerSlice.actions;
+export const { setActiveSong, nextSong, prevSong, playPause, selectGenreListId, setVolume, trigger } = playerSlice.actions;
 
 export default playerSlice.reducer;

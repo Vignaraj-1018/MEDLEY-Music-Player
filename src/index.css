@@ -15,3 +15,21 @@
     border-radius: 10px;
 }
   
+
+.range-thumb::-webkit-slider-thumb {
+    width: 1rem;
+    height: 1rem;
+    background-color: #dedede; /* Change to your preferred color */
+    border-radius: 50%;
+    cursor: pointer;
+    appearance: none;
+  }
+
+  .range-thumb::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    background-color: #dedede; /* Change to your preferred color */
+    border-radius: 50%;
+    cursor: pointer;
+    appearance: none;
+  }

@@ -4,10 +4,14 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import { Album, Home, Playlist, Search } from './pages'
 import Navbar from './components/Navbar'
 import axios from 'axios'
+import { SongBar } from './components'
+import { useSelector } from 'react-redux'
 
 function App() {
 
 	const [country, setCountry] = useState('');
+    const {isActive} = useSelector((state)=>state.player);
+
 	const getCountryCode = () => {
 		let countryCode = sessionStorage.getItem('country')
 		if (!countryCode){
@@ -40,7 +44,7 @@ function App() {
 	
   return (
     <div className='flex flex-col h-[100dvh] w-full overflow-auto bg-primary justify-between'>
-		<div className="flex flex-row h-full gap-4 p-4">
+		<div className={`flex flex-row ${isActive? 'h-[90dvh]' : 'h-full'} gap-4 p-4`}>
 			<div className="flex w-1/5">
 				<Navbar/>
 			</div>
@@ -66,6 +70,7 @@ function App() {
 				</div>
 			</div>
 		</div>
+		<SongBar/>
     </div>
   )
 }

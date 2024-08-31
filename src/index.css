@@ -2,42 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Active Navigation Link */
-.active {
-  @apply text-black;
+::-webkit-scrollbar  {
+    width: 5px;
+}
+  
+::-webkit-scrollbar-track {
+    background-color: #afafaf;
 }
 
-.active svg {
-  @apply text-black;
+::-webkit-scrollbar-thumb {
+    background-color: #424242;
+    border-radius: 10px;
 }
+  
 
-.bar:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.bar:nth-child(3) {
-  animation-delay: 0.4s;
-}
-.bar:nth-child(4) {
-  animation-delay: 0.6s;
-}
-.bar:nth-child(5) {
-  animation-delay: 0.8s;
-}
-.bar:nth-child(6) {
-  animation-delay: 1s;
-}
+.range-thumb::-webkit-slider-thumb {
+    width: 1rem;
+    height: 1rem;
+    background-color: #dedede; /* Change to your preferred color */
+    border-radius: 50%;
+    cursor: pointer;
+    appearance: none;
+  }
 
-.smooth-transition {
-  transition: all 0.3s ease-in-out;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
+  .range-thumb::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    background-color: #dedede; /* Change to your preferred color */
+    border-radius: 50%;
+    cursor: pointer;
+    appearance: none;
+  }

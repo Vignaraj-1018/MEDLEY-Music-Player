@@ -39,7 +39,7 @@ const SongBar = () => {
               audioRef.current.play();
               dispatch(playPause(true));
             } else if (!songData.activeSong.preview_url){
-                toast.warning('Song Preview Not Available');
+                toast.warning('Song Preview Not Available - ' + songData.activeSong.name);
                 audioRef.current.pause();
                 dispatch(playPause(false));
             } 
@@ -120,7 +120,7 @@ const SongBar = () => {
                     <div className="flex flex-row gap-4">
                         {songData.activeSong.album && <img src={songData.activeSong.album.images[0].url} alt="Thumbnail" className='flex h-16 w-16 rounded-lg'/>}
                         <div className="flex flex-col justify-between">
-                            <span className="flex text-xl font-bold">{songData.activeSong.name}</span>
+                            <span className="truncate w-[20rem] text-xl font-bold">{songData.activeSong.name}</span>
                             <div className="flex flex-row gap-2">
                                 {songData.activeSong.artists.slice(0,2).map((item, index)=>(
                                     <span className="flex text-base font-bold text-zinc-500" key={index}>{item.name}</span>

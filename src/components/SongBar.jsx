@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { LikeIcon, NextIcon, PauseIcon, PlayIcon2, PreviousIcon, Speaker0, Speaker1, Speaker2 } from '../assets';
 import { nextSong, playPause, prevSong, setVolume, trigger } from '../redux/slices/PlayerSlice';
+import { toast } from 'react-toastify';
 
 const SongBar = () => {
 
@@ -37,7 +38,12 @@ const SongBar = () => {
             } else if (songData.activeSong.preview_url) {
               audioRef.current.play();
               dispatch(playPause(true));
-            } else{
+            } else if (!songData.activeSong.preview_url){
+                toast.warning('Song Preview Not Available');
+                audioRef.current.pause();
+                dispatch(playPause(false));
+            } 
+            else{
                 audioRef.current.pause();
                 dispatch(playPause(false));
             }

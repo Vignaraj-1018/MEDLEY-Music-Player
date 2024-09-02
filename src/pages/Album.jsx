@@ -1,14 +1,17 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useGetAlbumQuery } from '../redux/apiStore/SpotifyAPI';
 import { ClockIcon, LikeIcon, PlayIcon } from '../assets';
 import { useDispatch } from 'react-redux';
 import { playPause, setActiveSong, trigger } from '../redux/slices/PlayerSlice';
+import { Loader } from '../components';
 
 const Album = () => {
 
     const params = useParams();
     const dispatch = useDispatch();
+    const [query] = useSearchParams();
+    const navigate = useNavigate();
 
     const {data : albumData, isFetching: isDataLoading} = useGetAlbumQuery(params.id);
 
@@ -25,6 +28,24 @@ const Album = () => {
 		dispatch(setActiveSong({song, data, i}));
 		dispatch(playPause(false));
 		dispatch(trigger(true));
+	}
+
+    const handlePlaylistPlay = () =>{
+        handlePlayClick(albumData?.tracks.items, albumData?.tracks.items[0], 0);
+    }
+
+    useEffect(()=>{
+        if (query.get('play') == 'true' && !isDataLoading){
+            handlePlaylistPlay();
+            query.delete('play');
+            navigate('', { replace: true });
+        }
+    }, [query, isDataLoading]);
+
+    if (isDataLoading){
+		return (
+			<Loader/>
+		)
 	}
 
     return (
@@ -46,7 +67,7 @@ const Album = () => {
                 </div>
             </div>
             <div className="flex flex-row gap-5">
-                <div className="flex justify-center items-center bg-green-500 rounded-full h-12 w-12 cursor-pointer">
+                <div className="flex justify-center items-center bg-green-500 rounded-full h-12 w-12 cursor-pointer" onClick={handlePlaylistPlay}>
                     <img src={PlayIcon} alt="Play"/>
                 </div>
                 <img src={LikeIcon} alt="Like" className='flex h-12 w-12 cursor-pointer'/>

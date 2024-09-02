@@ -1,16 +1,19 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useGetPlaylistQuery } from '../redux/apiStore/SpotifyAPI';
 import { ClockIcon, LikeIcon, PlayIcon } from '../assets';
 import { useDispatch } from 'react-redux';
 import { playPause, setActiveSong, trigger } from '../redux/slices/PlayerSlice';
+import { Loader } from '../components';
 
 const Playlist = () => {
 
 	const params = useParams();
+    const [query] = useSearchParams();
 	const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-	console.log(params);
+	console.log(params, query.get('play'));
 
     const {data : playlistData, isFetching: isDataLoading} = useGetPlaylistQuery(params.id);
 
@@ -30,12 +33,30 @@ const Playlist = () => {
 
 	console.log(playlistData);
 
+    const handlePlaylistPlay = () =>{
+        handlePlayClick(playlistData?.tracks.items, playlistData?.tracks.items[0].track, 0);
+    }
+
+    useEffect(()=>{
+        if (query.get('play') == 'true' && !isDataLoading){
+            handlePlaylistPlay();
+            query.delete('play');
+            navigate('', { replace: true });
+        }
+    }, [query, isDataLoading]);
+
+    if (isDataLoading){
+		return (
+			<Loader/>
+		)
+	}
+
 	return (
 		<div className="flex flex-col gap-8 p-8 w-full">
             <div className="flex flex-row gap-10 w-full">
                 <img src={playlistData?.images[0].url} alt="Album thumbnail" className='flex h-60 w-60'/>
                 <div className="flex flex-col gap-10 w-full justify-end">
-                    <span className="flex text-lg font-bold">Album</span>
+                    <span className="flex text-lg font-bold">Playlist</span>
                     <span className="text-5xl font-bold">{playlistData?.name}</span>
 					<span className="flex font-semibold text-zinc-700">{playlistData?.description}</span>
                     <div className="flex flex-row gap-2 items-center">
@@ -48,7 +69,7 @@ const Playlist = () => {
                 </div>
             </div>
             <div className="flex flex-row gap-5">
-                <div className="flex justify-center items-center bg-green-500 rounded-full h-12 w-12 cursor-pointer">
+                <div className="flex justify-center items-center bg-green-500 rounded-full h-12 w-12 cursor-pointer" onClick={handlePlaylistPlay}>
                     <img src={PlayIcon} alt="Play"/>
                 </div>
                 <img src={LikeIcon} alt="Like" className='flex h-12 w-12 cursor-pointer'/>

@@ -3,12 +3,18 @@ import { useDispatch } from 'react-redux';
 import useFetchHomeData from '../redux/usefetchHomeDate';
 import Discover from '../components/Discover';
 import HomePlaylist from '../components/HomePlaylist';
+import { Loader } from '../components';
 
 const Home = () => {
 	const dispatch = useDispatch()
 	const {data, isFetching, error} = useFetchHomeData();
 
-	if (!isFetching){
+	if (isFetching){
+		return (
+			<Loader/>
+		)
+	}
+	else if (!isFetching){
 		console.log(data);
 	}
 

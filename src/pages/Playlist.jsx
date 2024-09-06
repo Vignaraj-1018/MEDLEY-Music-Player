@@ -64,7 +64,7 @@ const Playlist = () => {
                         <span className="flex bg-white w-2 h-2 rounded-full"></span>
                         <span className="flex text-lg font-semibold">{playlistData?.followers.total} followers</span>
                         <span className="flex bg-white w-2 h-2 rounded-full"></span>
-                        <span className="flex text-lg font-semibold">{playlistData?.total_tracks} songs</span>
+                        <span className="flex text-lg font-semibold">{playlistData?.tracks.items.length} songs</span>
                     </div>
                 </div>
             </div>

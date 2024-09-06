@@ -22,6 +22,7 @@ export const spotifyAPI = createApi({
         getPlaylist: builder.query({ query:(id) => `/playlist?id=${id}`}),
         getAlbum: builder.query({ query:(id) => `/album?id=${id}`}),
         getArtist: builder.query({ query:(id) => `/artist?id=${id}`}),
+        getCategoryPlaylist: builder.query({ query:(id) => `/category?id=${id}`})
     })
 });
 
@@ -34,5 +35,6 @@ export const {
     useSearchQuery,
     useGetPlaylistQuery,
     useGetAlbumQuery,
-    useGetArtistQuery
+    useGetArtistQuery,
+    useGetCategoryPlaylistQuery
 } = spotifyAPI;

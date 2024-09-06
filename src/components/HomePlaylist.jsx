@@ -33,7 +33,7 @@ const HomePlaylist = ({title, dataList}) => {
 						</div>
 					</div>
 					<span className="flex text-lg text-white font-semibold">{item.name}</span>
-					<span className="flex text-base text-zinc-300 font-semibold">{item.description}</span>
+					<span className="text-base text-zinc-300 font-semibold truncate">{item.description}</span>
 				</div>
 			))}
 		</div>

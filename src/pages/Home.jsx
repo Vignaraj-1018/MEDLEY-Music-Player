@@ -1,9 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import useFetchHomeData from '../redux/usefetchHomeDate';
-import Discover from '../components/Discover';
-import HomePlaylist from '../components/HomePlaylist';
-import { Loader } from '../components';
+import { ListAlbum, ListPlaylist, Loader } from '../components';
 
 const Home = () => {
 	const dispatch = useDispatch()
@@ -22,8 +20,8 @@ const Home = () => {
 		<div className='flex'>
 			
 			<div className="flex flex-col p-6 gap-8">
-				<Discover dataList={data.discoverList}/>
-				<HomePlaylist title={data.trendingList?.message} dataList={data.trendingList?.playlists.items}/>
+				<ListAlbum dataList={data.discoverList?.albums.items.slice(0, 8)} title={'Good Morning!'}/>
+				<ListPlaylist title={data.trendingList?.message} dataList={data.trendingList?.playlists.items}/>
 			</div>
 		</div>
 	)

@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { spotifyAPI } from "./apiStore/SpotifyAPI";
 
 import playerReducer from "./slices/PlayerSlice";
+import promptReducer from "./slices/SearchPrompt";
 
 const logger = (store) => (next) => (action) => {
     // console.log('dispatching', action);
@@ -13,7 +14,8 @@ const logger = (store) => (next) => (action) => {
 export const store = configureStore({
     reducer:{
         [spotifyAPI.reducerPath]: spotifyAPI.reducer,
-        player: playerReducer
+        player: playerReducer,
+        promptString: promptReducer
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(spotifyAPI.middleware, logger)
 })

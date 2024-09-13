@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
 import { useGetCategoryPlaylistQuery } from '../redux/apiStore/SpotifyAPI';
-import { HomePlaylist, Loader } from '../components';
+import { ListPlaylist, Loader } from '../components';
 
 const Genre = () => {
 
@@ -21,7 +21,7 @@ const Genre = () => {
     return (
         <div className='flex flex-col p-5 gap-5'>
             <div className="flex text-7xl font-semibold pt-20">{categoryData?.message}</div>
-            <HomePlaylist dataList={categoryData?.playlists.items}/>
+            <ListPlaylist dataList={categoryData?.playlists.items}/>
         </div>
     )
 }

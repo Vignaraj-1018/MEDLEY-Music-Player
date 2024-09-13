@@ -1,16 +1,21 @@
 import React from 'react'
 import { HomeIcon, LibraryIcon, PlusIcon, RightArrow, SearchIcon, UserIcon } from '../assets'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { clearPromptString } from '../redux/slices/SearchPrompt'
 
 const Navbar = () => {
 
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const handleSearchClick = () => {
         navigate('/search');
+		dispatch(clearPromptString());
     }
 
 	const handleHomeClick = () => {
         navigate('/');
+		dispatch(clearPromptString());
     }
 
   return (

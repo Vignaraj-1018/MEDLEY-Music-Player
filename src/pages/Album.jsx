@@ -93,7 +93,7 @@ const Album = () => {
                                     {item.name}
                                 </span>
                                 <div className="flex flex-row gap-3 items-center">
-                                    {item.explicit && <span className="flex bg-zinc-100 rounded-lg p-1 text lg font-semibold w-6 items-center justify-center">E</span>}
+                                    {item.explicit && <span className="flex bg-zinc-100 rounded-lg p-1 text-lg font-semibold w-6 items-center justify-center">E</span>}
                                     {item.artists.map((artist, index)=>(
                                         <span key={index} className="flex text-base font-semibold text-zinc-600">{artist.name}</span>
                                     ))}

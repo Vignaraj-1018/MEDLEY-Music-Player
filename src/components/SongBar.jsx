@@ -13,7 +13,7 @@ const SongBar = () => {
     const [duration, setDuration] = useState(0);
     const rangeRef = useRef(null);
 
-    console.log(songData);
+    // console.log(songData);
 
     const formatDuration = (durationMs) => {
         const minutes = Math.floor(durationMs / 60000);

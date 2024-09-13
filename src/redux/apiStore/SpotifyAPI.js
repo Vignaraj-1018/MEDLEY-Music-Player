@@ -18,7 +18,7 @@ export const spotifyAPI = createApi({
         getFeaturedList: builder.query({ query:() => `/featured`}),
         getNewReleasesList: builder.query({ query:() => `/newreleases`}),
         getHomeList: builder.query({ query:() => `/home`}),
-        search: builder.query({ query:(query, type) => `/search?query=${query}&type=${type}`}),
+        search: builder.query({ query:(query) => `/search?query=${query.query}&type=${query.type}`}),
         getPlaylist: builder.query({ query:(id) => `/playlist?id=${id}`}),
         getAlbum: builder.query({ query:(id) => `/album?id=${id}`}),
         getArtist: builder.query({ query:(id) => `/artist?id=${id}`}),

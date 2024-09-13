@@ -1,6 +1,7 @@
-import Discover from "./Discover";
-import HomePlaylist from "./HomePlaylist";
+import ListAlbum from "./listAlbum";
+import ListPlaylist from "./listPlaylist";
 import SongBar from "./SongBar";
 import Loader from "./Loader";
+import ListTracks from "./listTracks";
 
-export { Discover, HomePlaylist, SongBar, Loader };
+export { ListAlbum, ListPlaylist, SongBar, Loader, ListTracks };

@@ -5,17 +5,22 @@ import { Album, Home, Playlist, Search } from './pages'
 import Navbar from './components/Navbar'
 import axios from 'axios'
 import { SongBar } from './components'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Genre from './pages/Genre'
 import { myHelperBackendAPI } from './assets'
+import { clearPromptString, setPromptString } from './redux/slices/SearchPrompt'
 
 function App() {
 
 	const [country, setCountry] = useState('');
+	const [searchInput, setSearchInput] = useState('');
     const {isActive} = useSelector((state)=>state.player);
+	const searchPrompt = useSelector((state)=> state.promptString);
+
+	const dispatch = useDispatch();
 
 	const location = useLocation();
 
@@ -68,11 +73,34 @@ function App() {
 
 	const handleForwardClick = () =>{
 		navigate(1);
+		dispatch(clearPromptString());
 	}
 
 	const handleBackwardClick = () =>{
 		navigate(-1);
+		dispatch(clearPromptString());
 	}
+
+	// Update the local input state when user types
+	const handleSearchInputChange = (s) => {
+		setSearchInput(s);
+	};
+	
+	// Use effect to handle delayed search prompt dispatch
+	useEffect(() => {
+		const timer = setTimeout(() => {
+		  if (searchInput) {
+			dispatch(setPromptString(searchInput)); // Dispatch the search string after 1 second
+		  }
+		  else{
+			dispatch(clearPromptString());
+		  }
+		}, 1000);
+	
+		return () => clearTimeout(timer); // Cleanup if input changes before 1 second
+	}, [searchInput, dispatch]);
+
+	// console.log(searchPrompt);
 
   	return (
     <div className='flex flex-col h-[100dvh] w-full overflow-auto bg-primary justify-between'>
@@ -93,7 +121,7 @@ function App() {
 								</div>
 							</div>
 							{isSearchRoute && <div className="flex items-center">
-								<input type="text" name="search" id="search" className='flex border-none bg-zinc-900 rounded-3xl py-2 px-5 text-zinc-400 w-80' placeholder='What do you want to listen to?'/>
+								<input type="text" name="search" id="search" className='flex border-none bg-zinc-900 rounded-3xl py-2 px-5 text-zinc-400 w-80' placeholder='What do you want to listen to?' onChange={(e) => handleSearchInputChange(e.target.value)} autoComplete='off'/>
 							</div>}
 						</div>
 						<div className="flex bg-white py-2 px-4 text-lg font-semibold cursor-pointer hover:scale-105 rounded-2xl select-none">Login</div>

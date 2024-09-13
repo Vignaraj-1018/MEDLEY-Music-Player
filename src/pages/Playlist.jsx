@@ -13,7 +13,7 @@ const Playlist = () => {
 	const dispatch = useDispatch();
     const navigate = useNavigate();
 
-	console.log(params, query.get('play'));
+	// console.log(params, query.get('play'));
 
     const {data : playlistData, isFetching: isDataLoading} = useGetPlaylistQuery(params.id);
 
@@ -25,13 +25,13 @@ const Playlist = () => {
     }
 
 	const handlePlayClick = (data, song, i) =>{
-		console.log(song);
+		// console.log(song);
 		dispatch(setActiveSong({song, data, i}));
 		dispatch(playPause(false));
 		dispatch(trigger(true));
 	}
 
-	console.log(playlistData);
+	// console.log(playlistData);
 
     const handlePlaylistPlay = () =>{
         handlePlayClick(playlistData?.tracks.items, playlistData?.tracks.items[0].track, 0);

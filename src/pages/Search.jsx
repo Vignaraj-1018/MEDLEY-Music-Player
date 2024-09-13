@@ -33,7 +33,7 @@ const Search = () => {
 	
 	useEffect(() => {
 		if (trackResults && playlistResults && albumResults){
-			console.log("All Results:", trackResults, playlistResults, albumResults);
+			// console.log("All Results:", trackResults, playlistResults, albumResults);
 		}
 	}, [trackResults, playlistResults, albumResults]);
 

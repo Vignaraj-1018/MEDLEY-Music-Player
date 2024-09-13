@@ -6,11 +6,11 @@ import { ListPlaylist, Loader } from '../components';
 const Genre = () => {
 
     const params = useParams();
-    console.log(params);
+    // console.log(params);
     
     const {data : categoryData, isFetching: isDataLoading} = useGetCategoryPlaylistQuery(params.id);
 
-    console.log(categoryData);
+    // console.log(categoryData);
 
     if (isDataLoading){
 		return (

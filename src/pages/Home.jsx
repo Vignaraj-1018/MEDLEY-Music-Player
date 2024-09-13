@@ -13,7 +13,7 @@ const Home = () => {
 		)
 	}
 	else if (!isFetching){
-		console.log(data);
+		// console.log(data);
 	}
 
 	return (

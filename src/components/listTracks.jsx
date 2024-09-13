@@ -5,7 +5,7 @@ import { playPause, setActiveSong, trigger } from '../redux/slices/PlayerSlice';
 
 const listTracks = ({dataList, title}) => {
 
-    console.log(dataList, title);
+    // console.log(dataList, title);
     const dispatch = useDispatch();
 
     const formatDuration = (durationMs) => {
@@ -15,7 +15,7 @@ const listTracks = ({dataList, title}) => {
     }
 
     const handlePlayClick = (data, song, i) =>{
-		console.log(song);
+		// console.log(song);
 		dispatch(setActiveSong({song, data, i}));
 		dispatch(playPause(false));
 		dispatch(trigger(true));

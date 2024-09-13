@@ -7,13 +7,13 @@ const HomePlaylist = ({title, dataList}) => {
 	const navigate = useNavigate();
 
 	const handlePlaylistClick = (item) => {
-		console.log(item);
+		// console.log(item);
 		navigate(`/playlist/${item.id}`);
 	}
 
 	const handlePlay = (e, item) => {
 		e.stopPropagation();
-		console.log(item);
+		// console.log(item);
         navigate(`/playlist/${item.id}?play=true`);
 	}
 

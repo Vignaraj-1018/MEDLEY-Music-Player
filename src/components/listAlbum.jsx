@@ -9,13 +9,13 @@ const Discover = ({dataList, title}) => {
 	const navigate = useNavigate();
 
 	const handleAlbumClick = (item) => {
-		console.log(item);
+		// console.log(item);
 		navigate(`/album/${item.id}`);
 	}
 
 	const handlePlay = (e, item) => {
 		e.stopPropagation();
-		console.log(item);
+		// console.log(item);
         navigate(`/album/${item.id}?play=true`);
 	}
 

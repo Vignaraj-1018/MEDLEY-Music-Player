@@ -15,7 +15,7 @@ const Album = () => {
 
     const {data : albumData, isFetching: isDataLoading} = useGetAlbumQuery(params.id);
 
-    console.log(albumData);
+    // console.log(albumData);
 
     const formatDuration = (durationMs) => {
         const minutes = Math.floor(durationMs / 60000);
@@ -24,7 +24,7 @@ const Album = () => {
     }
 
     const handlePlayClick = (data, song, i) =>{
-		console.log(song);
+		// console.log(song);
 		dispatch(setActiveSong({song, data, i}));
 		dispatch(playPause(false));
 		dispatch(trigger(true));

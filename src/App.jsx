@@ -66,7 +66,7 @@ function App() {
 
 	useEffect(()=>{
 		getCountryCode();
-		// sendWebsiteViewAnalytics();
+		sendWebsiteViewAnalytics();
 	},[]);
 
 	const navigate = useNavigate();
